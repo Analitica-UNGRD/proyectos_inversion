@@ -1,0 +1,251 @@
+.login-img-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  background: #fff;
+}
+body.login-bg {
+  background: #212121;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor del fondo animado: líneas, círculos y degradados sutiles */
+.login-animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* detrás del contenido del login */
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse at bottom left, rgba(34,34,34,0.6), transparent 30%), radial-gradient(ellipse at top right, rgba(40,40,40,0.35), transparent 25%);
+}
+
+.login-animated-bg::after {
+  /* sutil overlay de líneas diagonales en movimiento (rejilla fina) */
+  content: '';
+  position: absolute;
+  inset: -20% -20% -20% -20%;
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: panGrid 28s linear infinite;
+  opacity: 0.9;
+  mix-blend-mode: overlay;
+}
+
+.login-animated-bg::before {
+  /* bandas largas y sutiles que se deslizan para dar dinamismo */
+  content: '';
+  position: absolute;
+  inset: -40% -40% -40% -40%;
+  background: linear-gradient(90deg, rgba(255,198,23,0.02) 0%, rgba(120,90,255,0.02) 50%, rgba(0,150,255,0.02) 100%);
+  filter: blur(24px);
+  animation: slowPan 40s linear infinite;
+}
+
+@keyframes panGrid {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-120px, 80px, 0); }
+}
+
+/* Burbujas / círculos flotantes */
+.login-animated-bg .circle {
+  position: absolute;
+  border-radius: 50%;
+  /* menos blur para más definición, pero con glow */
+  filter: blur(6px);
+  opacity: 0.55;
+  transform: translate3d(0,0,0);
+  mix-blend-mode: screen;
+  box-shadow: 0 16px 60px rgba(0,0,0,0.45), 0 0 60px rgba(255,255,255,0.02) inset;
+}
+.login-animated-bg .c1 { width: 480px; height: 480px; left: -12%; top: 6%; background: radial-gradient(circle at 30% 30%, rgba(255,198,23,0.45), rgba(255,198,23,0.06) 45%, transparent 70%); animation: float1 18s ease-in-out infinite; opacity:0.7 }
+.login-animated-bg .c2 { width: 300px; height: 300px; right: -6%; top: 4%; background: radial-gradient(circle at 40% 35%, rgba(0,150,255,0.36), rgba(0,150,255,0.05) 50%, transparent 75%); animation: float2 20s ease-in-out infinite; opacity:0.6 }
+.login-animated-bg .c3 { width: 220px; height: 220px; left: 8%; bottom: -6%; background: radial-gradient(circle at 30% 40%, rgba(100,255,200,0.28), rgba(100,255,200,0.03) 55%, transparent 80%); animation: float3 22s ease-in-out infinite; opacity:0.55 }
+.login-animated-bg .c4 { width: 140px; height: 140px; right: 18%; bottom: 6%; background: radial-gradient(circle at 40% 40%, rgba(255,80,120,0.30), rgba(255,80,120,0.03) 55%, transparent 80%); animation: float4 16s ease-in-out infinite; opacity:0.5 }
+.login-animated-bg .c5 { width: 110px; height: 110px; left: 45%; top: 32%; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.38), rgba(255,255,255,0.04) 60%, transparent 85%); animation: float5 14s ease-in-out infinite; opacity:0.6 }
+.login-animated-bg .c6 { width: 360px; height: 360px; right: -20%; top: 34%; background: radial-gradient(circle at 30% 30%, rgba(120,90,255,0.28), rgba(120,90,255,0.02) 50%, transparent 75%); animation: float6 24s ease-in-out infinite; opacity:0.5 }
+
+@keyframes float1 { 0% { transform: translateY(0) translateX(0) scale(1); } 50% { transform: translateY(-28px) translateX(18px) scale(1.02); } 100% { transform: translateY(0) translateX(0) scale(1); } }
+@keyframes float2 { 0% { transform: translateY(0) translateX(0) scale(1); } 50% { transform: translateY(36px) translateX(-22px) scale(1.03); } 100% { transform: translateY(0) translateX(0) scale(1); } }
+@keyframes float3 { 0% { transform: translateY(0) translateX(0) scale(1); } 50% { transform: translateY(-22px) translateX(12px) scale(1.01); } 100% { transform: translateY(0) translateX(0) scale(1); } }
+@keyframes float4 { 0% { transform: translateY(0) translateX(0) scale(1); } 50% { transform: translateY(30px) translateX(-8px) scale(0.98); } 100% { transform: translateY(0) translateX(0) scale(1); } }
+@keyframes float5 { 0% { transform: translateY(0) translateX(0) scale(1); } 50% { transform: translateY(-12px) translateX(6px) scale(1.05); } 100% { transform: translateY(0) translateX(0) scale(1); } }
+@keyframes float6 { 0% { transform: translateY(0) translateX(0) scale(1); } 50% { transform: translateY(40px) translateX(-40px) scale(1.02); } 100% { transform: translateY(0) translateX(0) scale(1); } }
+
+@keyframes slowPan { from { transform: translate3d(0,0,0); } to { transform: translate3d(-180px, 80px, 0); } }
+
+/* SVG background styles */
+.login-bg-svg { position: absolute; inset: 0; width: 120%; height: 120%; left: -10%; top: -6%; z-index: 1; }
+.login-bg-svg .lines-group { transform-origin: center; }
+.login-bg-svg .line { stroke-linecap: round; stroke-linejoin: round; }
+.login-bg-svg .l1 { animation: linePan 26s linear infinite; }
+.login-bg-svg .l2 { animation: linePan 32s linear infinite reverse; }
+.login-bg-svg .l3 { animation: linePan 38s linear infinite; }
+.login-bg-svg .dot { filter: blur(14px); transform-origin: center; animation: dotFloat 30s ease-in-out infinite; }
+
+@keyframes linePan { 0% { transform: translateX(0); stroke-opacity:0.7 } 50% { transform: translateX(-60px); stroke-opacity:0.55 } 100% { transform: translateX(0); stroke-opacity:0.7 } }
+@keyframes dotFloat { 0% { transform: translateY(0) } 50% { transform: translateY(-18px) } 100% { transform: translateY(0) } }
+
+/* Ajustes de visibilidad para un look más institucional y profesional */
+.login-animated-bg .circle, .login-bg-svg .dot { mix-blend-mode: screen; }
+.login-animated-bg .circle { opacity: 0.5 }
+
+@media (max-width: 900px) {
+  .login-bg-svg { display: none; }
+}
+
+/* Preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .login-animated-bg::after,
+  .login-animated-bg::before,
+  .login-animated-bg .circle {
+    animation: none !important;
+    transition: none !important;
+  }
+  .login-animated-bg .circle { filter: blur(4px); }
+}
+
+/* Asegurar que el contenido del login esté por encima */
+.login-container-custom { position: relative; z-index: 10; }
+.login-left-custom, .login-right-custom { position: relative; z-index: 11; }
+
+/* Reducir efecto en pantallas pequeñas para performance */
+@media (max-width: 900px) {
+  .login-animated-bg .circle { filter: blur(10px); opacity: 0.28; }
+  .login-animated-bg::after { opacity: 0.5; }
+}
+
+/* Estilos personalizados para el login adaptado */
+.login-container-custom {
+  display: flex;
+  background: transparent;
+  border-radius: 24px;
+  overflow: hidden;
+  max-width: 1400px;
+  width: 100%;
+  min-height: 400px;
+  margin: 0 auto;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 40px 0 rgba(0,0,0,0.18);
+  transition: box-shadow 0.3s, transform 0.3s cubic-bezier(.4,2,.6,1);
+  height: auto;
+}
+.login-container-custom:hover {
+  box-shadow: 0 0 0 8px #fecc17, 0 0 40px 0 #fecc17;
+  transform: scale(1.018);
+}
+.login-left-custom {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 40px 32px 40px;
+  background: #171717;
+  min-height: 400px;
+  height: 100%;
+}
+.login-logo-custom {
+  width: 120px;
+  max-width: 280px;
+  max-height: 180px;
+  margin-bottom: 32px;
+  display: block;
+  height: auto;
+}
+.login-title-custom {
+  color: #FFD600;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.login-subtitle-custom {
+  color: #d3d3d3;
+  font-size: 1rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.login-form-custom {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.login-field-custom {
+  display: flex;
+  align-items: center;
+  background: #232323;
+  border-radius: 24px;
+  padding: 0.7em 1em;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+.login-field-custom svg {
+  width: 1.3em;
+  height: 1.3em;
+  fill: #FFD600;
+  margin-right: 0.7em;
+}
+.login-input-custom {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #fff;
+  font-size: 1em;
+}
+.login-btn-custom {
+  width: 100%;
+  padding: 0.8em;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #FFD600 0%, #FFB300 100%);
+  color: #232323;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+.login-btn-custom:hover {
+  background: linear-gradient(90deg, #FFB300 0%, #FFD600 100%);
+}
+.login-help-custom {
+  color: #bdbdbd;
+  font-size: 0.95em;
+  margin-top: 32px;
+  text-align: center;
+}
+.login-right-custom {
+  flex: 1 1 0;
+  min-width: 540px;
+  min-height: 400px;
+  position: relative;
+  /* La imagen decorativa se maneja solo con <img> en JSX */
+}
+.login-error-custom {
+  color: #ff5252;
+  background: #232323;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 1em;
+}
+@media (max-width: 900px) {
+  .login-container-custom { flex-direction: column; min-height: unset; }
+  .login-right-custom { min-width: unset; min-height: 240px; height: 240px; }
+  .login-left-custom { min-height: unset; }
+}

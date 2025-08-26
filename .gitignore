@@ -1,0 +1,54 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.*
+
+# Test and backup files
+*.backup
+test-*
+
+# Vercel
+.vercel/
+
+# Misc
+*.log
+
+# Do not publish local READMEs or documentation drafts
+# Common README files (keep out of repo until ready)
+README
+README.*
+README.md
+
+# Seguridad/readme específico
+SEGURIDAD_README
+SEGURIDAD_README.*
+SEGURIDAD_README.md
+
+# Ignore all markdown files
+*.md
+*.MD
+
+# Google Apps Script deployment file (keep out of repo)
+webapp.gs
+
+# IDE/editor
+.vscode/
+*.code-workspace
+.idea/
+
+# Local env overrides
+.env.local

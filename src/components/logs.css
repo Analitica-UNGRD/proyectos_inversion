@@ -1,0 +1,146 @@
+/* Estilos para LogsViewer (moved from src/styles/logs.css) */
+.logs-viewer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logs-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.logs-header .logs-icon {
+  color: #2c5aa0;
+  font-size: 24px;
+}
+
+.logs-header h2 {
+  margin: 0;
+  color: #2c5aa0;
+  font-size: 24px;
+}
+
+.logs-count {
+  color: #666;
+  font-size: 14px;
+  margin-left: auto;
+}
+
+.logs-container {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.log-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.log-entry:hover {
+  background-color: #f8f9fa;
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-icon {
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+}
+
+.log-content {
+  flex: 1;
+}
+
+.log-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.log-email {
+  font-weight: 600;
+  color: #2c5aa0;
+  font-size: 14px;
+}
+
+.log-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-size: 12px;
+}
+
+.clock-icon {
+  font-size: 10px;
+}
+
+.log-action {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+.log-description {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+.no-logs {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.no-logs svg {
+  font-size: 48px;
+  margin-bottom: 15px;
+  opacity: 0.3;
+}
+
+.logs-viewer .loading-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.logs-viewer .error-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.logs-viewer .error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #e74c3c;
+}
+
+.logs-viewer .error-icon {
+  font-size: 32px;
+}
